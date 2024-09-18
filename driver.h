@@ -1,11 +1,9 @@
-#ifndef DRIVER_H_
-#define DRIVER_H_
+#ifndef DRIVER_H
+#define DRIVER_H
 
 #include <iostream>
 
-
-
-
+using namespace std;
 
 
 #endif
