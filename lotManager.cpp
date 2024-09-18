@@ -1,4 +1,5 @@
-#include "connection.h"#include "lotManager.h"
+#include "connection.h"
+#include "lotManager.h"
 
 parkingLot* parkLotArr = new parkingLot[size];
 
