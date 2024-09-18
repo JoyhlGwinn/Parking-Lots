@@ -21,6 +21,28 @@ int main()
         }
     } while(userInput < 1 || userInput > 5);
 
+    switch(userInput) {
+        case 1:
+            //call addCustomer function
+        break;
+
+        case 2:
+            //call parkingStatus function
+        break;
+
+        case 3:
+            //call delCustomer function
+        break;
+
+        case 4:
+            //call viewCustomer function
+        break;
+
+        case 5:
+            return 0;
+        
+
+    }
 
     return 0;
 }
