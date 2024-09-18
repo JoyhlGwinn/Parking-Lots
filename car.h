@@ -12,11 +12,11 @@ class car
     string Make;
     string Model;
     string OwnerName;
-    int enumeration;
+    string color;
     int year;
 
     public:
-    car(string, string, string, string, int, int);
+    car(string, string, string, string, string, int);
 };
 
 #endif
