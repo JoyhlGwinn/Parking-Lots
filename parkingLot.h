@@ -13,8 +13,8 @@ class ParkingLot {
     int** car;
 
 public:
-parkingLot(sring name, int time);
-~parkingLot();
+ParkingLot(sring name, int time);
+~ParkingLot();
 
 bool parkCar(int** car, int time);
 void printLotStatus() const;
