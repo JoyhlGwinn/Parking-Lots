@@ -4,7 +4,7 @@ using namespace std;
 
 ParkingLot::ParkingLot(int capacity)
     : lotCapacity(capacity), currentOccupancy(0) {
-    // Initialize arrays
+    //arrays
     parkingTimes = new int[lotCapacity]();
     parkedCars = new Car*[lotCapacity];
     for (int i = 0; i < lotCapacity; ++i) {
