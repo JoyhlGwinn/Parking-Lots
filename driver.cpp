@@ -1,48 +1,62 @@
-#include "connection.h"
+#include "car.h"
+#include <iostream>
 
 using namespace std;
 
-int main()
-{
+int main() {
     int userInput;
 
     do {
-        cout << "Choose an integer 1-5 to take action. " << endl;
-        cout << "1.) Would you like to add a customer? " << endl;
-        cout << "2.) Print parking lot status. " << endl;
-        cout << "3.) Would you like to remove a customer? " << endl;
-        cout << "4.) View all customer in the paring lot. " << endl;
-        cout << "5.) Would you like to end the program? " << endl;
+        cout << "Choose an integer 1-7 to take action. " << endl;
+        cout << "\n1.) Add a customer (car) " << endl;
+        cout << "\n2.) Print parking lot status " << endl;
+        cout << "\n3.) Remove a customer " << endl;
+        cout << "\n4.) View all customers in the parking lot " << endl;
+        cout << "\n5.) End the program " << endl;
 
         cin >> userInput;
 
-        if(userInput < 1 || userInput > 5) {
-            cout << "\n\nChoose an integer 1-5 please. " << endl << endl;
+        if (userInput < 1 || userInput > 5) {
+            cout << "\n\nChoose an integer 1-5, please. " << endl << endl;
         }
-    } while(userInput < 1 || userInput > 5);
+    } while (userInput < 1 || userInput > 7);
 
-    switch(userInput) {
-        case 1:
-            //call addCustomer function
-        break;
+    switch (userInput) {
+        case 1: {
+            string make, model, licensePlate, color;
+
+            cout << "Enter the car's make: ";
+            cin >> make;
+            cout << "Enter the car's model: ";
+            cin >> model;
+            cout << "Enter the car's license plate: ";
+            cin >> licensePlate;
+            cout << "Enter the car's color: ";
+            cin >> color;
+
+            // Create a new Car object with the provided information
+            Car newCar(make, model, licensePlate, color);
+
+            // Display the car details
+            cout << "Customer added with car details: " << newCar.getDetails() << endl;
+            break;
+        }
 
         case 2:
-            //call parkingStatus function
-        break;
+            cout << "Parking lot status is unavailable." << endl;
+            break;
 
         case 3:
-            //call delCustomer function
-        break;
+            cout << "Removing a customer is unavailable." << endl;
+            break;
 
         case 4:
-            //call viewCustomer function
-        break;
+            cout << "Viewing customers is unavailable." << endl;
+            break;
 
         case 5:
+            cout << "Program ended." << endl;
             return 0;
-        
-
     }
-
     return 0;
 }
