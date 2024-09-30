@@ -7,7 +7,8 @@ int main() {
     int userInput;
 
     do {
-        cout << "Choose an integer 1-7 to take action. " << endl;
+        asciiArt()
+        cout << "Choose an integer 1-5 to take action. " << endl;
         cout << "\n1.) Add a customer (car) " << endl;
         cout << "\n2.) Print parking lot status " << endl;
         cout << "\n3.) Remove a customer " << endl;
@@ -20,7 +21,7 @@ int main() {
             cout << "\n\nChoose an integer 1-5, please. " << endl << endl;
         }
     } while (userInput < 1 || userInput > 7);
-
+    
     switch (userInput) {
         case 1: {
             string make, model, licensePlate, color;
@@ -57,6 +58,14 @@ int main() {
         case 5:
             cout << "Program ended." << endl;
             return 0;
+    }
+
+    asciiArt(){
+        cout << "        ____                      _____________              _____________" << endl;
+        cout << "   ____//_]|________         ____//__][__][___|         ____//__][______||" <<  endl;
+        cout << "  (o _ |  -|   _  o|        (o  _|  -|     _ o|        (o _ |  -|   _   o|" << endl;
+        cout << "   `(_)-------(_)--'         `-(_)--------(_)-'         `(_)-------(_)---'" << endl;
+
     }
     return 0;
 }
