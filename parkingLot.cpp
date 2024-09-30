@@ -1,5 +1,8 @@
 #include "ParkingLot.h"
 #include <iostream>
+#include <fstream>
+#include <ctime>
+
 using namespace std; 
 
 ParkingLot::ParkingLot(int capacity)
@@ -64,5 +67,25 @@ void ParkingLot::displayStatus() const {
         } else {
             cout << "Available\n";
         }
+    }
+}
+void ParkingLot::saveFile(const string& filename){
+    ofstram outFile(filename);
+    if(!outfile){
+        cerr << "There was an error open file.\n";
+        return;
+    }
+    outFile << lotCapacity << "" << currentOccupancy << "\n";
+    for(int i = 0; i<lotCapacity; ++i);{
+        if(parkedCars[i] !=nullptr);{
+        outfile<<i<<"" << parkingTimes[i] << "\n";
+        }
+    }
+outFile.close();
+}
+void ParkingLot::LoadFromFiles(const string& filename){
+    ifstream inFile(filename);
+    if (!infile){
+        cerr << "There was an error opening the file for reading." 
     }
 }
