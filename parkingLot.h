@@ -19,5 +19,7 @@ void assignCar(int spot, Car* car, int rentalTime);
 void releaseSpot(int spot);
 void displayStatus() const;
 
+void saveToFile(const string& filename) const;
+void loadFromFile(const string& filename);
 };
 #endif
