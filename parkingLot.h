@@ -7,7 +7,6 @@ class ParkingLot {
     private:
     int lotCapacity;
     int currentOccupancy;
-    int* parkingTimes;
     Car** parkedCars;
 
 public:
