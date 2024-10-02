@@ -1,5 +1,4 @@
-#include "customer.h"
-
+#include "customer.h" //Make Varis of age/ gender... remeber to stitch details and rented spot.
 Customer::Customer (string& name, Car* customerCar, ParkingLot* spot)
     : customerName(name), car(customerCar), rentedSpot(spot){}
 
@@ -34,14 +33,29 @@ void Customer::releaseSpot ()
     }
 }
 
+//Sorry, not done yet. More annoying to implemet than anticipated
 string Customer::getInfo ()
 {
     string customerInfo;
 
-    cout << "What is the customer's name?\n";
-    cin >> customerName;
+    //     string make, model, licensePlate, color;
 
-    customerInfo = customerName+"#"+getDetails()+"#"+rentedSpot;
+    //     cout << "Enter the car's make: ";
+    //     cin >> make;
+    //     cout << "Enter the car's model: ";
+    //     cin >> model;
+    //     cout << "Enter the car's license plate: ";
+    //     cin >> licensePlate;
+    //     cout << "Enter the car's color: ";
+    //     cin >> color;
+
+    // Car newCar(make, model, licensePlate, color);
+    // string CustomerCar = newCar.getDetails();
+
+    // cout << "What is the customer's name?\n";
+    // cin >> customerName;
+
+    customerInfo = customerName+"#"+;//getDetails()make+model+licensePlate+color+"#";+rentedSpot; Still needs proper data from Car
 
     return customerInfo;
 }

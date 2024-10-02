@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "car.h"
 #include "parkingLot.cpp"
 using namespace std;
@@ -21,7 +22,5 @@ class Customer
     void rentSpot (ParkingLot* spot);
     void releaseSpot ();
     string getInfo ();
-
-    
 };
 #endif

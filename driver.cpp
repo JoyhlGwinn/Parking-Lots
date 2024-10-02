@@ -1,4 +1,5 @@
 #include "car.h"
+#include "customer.h"
 #include "driver.h"
 
 using namespace std;
@@ -7,7 +8,7 @@ int main() {
     int userInput;
 
     do {
-        asciiArt()
+        asciiArt();
         cout << "Choose an integer 1-5 to take action. " << endl;
         cout << "\n1.) Add a customer (car) " << endl;
         cout << "\n2.) Print parking lot status " << endl;
@@ -24,7 +25,7 @@ int main() {
     
     switch (userInput) {
         case 1: {
-            string make, model, licensePlate, color;
+            string make, model, licensePlate, color, name, gender, age;
 
             cout << "Enter the car's make: ";
             cin >> make;
@@ -34,12 +35,25 @@ int main() {
             cin >> licensePlate;
             cout << "Enter the car's color: ";
             cin >> color;
+            //New variables for customer functions, may be moved later
+            cout << "Enter the customer's name: ";
+            cin >> name;
+            cout << "Enter the customer's gender: ";
+            cin >> gender;
+            cout << "Enter the customer's age: ";
+            cin >> age;
 
             // Create a new Car object with the provided information
             Car newCar(make, model, licensePlate, color);
 
+            //Not finished, Trying to get car info attached to customer info
+            Customer newCustomer(make, model, licensePlate, color, name, gender, age);
+
             // Display the car details
             cout << "Customer added with car details: " << newCar.getDetails() << endl;
+            
+            //Not finished, similar to newCustomer
+            Customer getInfo();
             break;
         }
 
