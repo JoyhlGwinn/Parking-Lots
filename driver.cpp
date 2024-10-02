@@ -46,13 +46,10 @@ int main() {
             // Create a new Car object with the provided information
             Car newCar(make, model, licensePlate, color);
 
-            //Not finished, Trying to get car info attached to customer info
-            Customer newCustomer(make, model, licensePlate, color, name, gender, age);
-
             // Display the car details
             cout << "Customer added with car details: " << newCar.getDetails() << endl;
             
-            //Not finished, similar to newCustomer
+            //Ties together Car info and Customer info, displays customer info.
             Customer getInfo();
             break;
         }

@@ -12,6 +12,8 @@ class Customer
 {
     private:
     string customerName;
+    string gender;
+    string age;
     Car* car;
     ParkingLot* rentedSpot;
 
