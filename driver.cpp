@@ -1,20 +1,19 @@
 #include "car.h"
 #include "customer.h"
 #include "driver.h"
+#include "parkingLot.h"
 
 using namespace std;
 
 int main() {
     int userInput;
-
     do {
-        asciiArt();
         cout << "Choose an integer 1-5 to take action. " << endl;
         cout << "\n1.) Add a customer (car) " << endl;
         cout << "\n2.) Print parking lot status " << endl;
         cout << "\n3.) Remove a customer " << endl;
         cout << "\n4.) View all customers in the parking lot " << endl;
-        cout << "\n5.) End the program " << endl;
+        cout << "\n5.) End the program \n" << endl;
 
         cin >> userInput;
 
@@ -27,7 +26,7 @@ int main() {
         case 1: {
             string make, model, licensePlate, color, name, gender, age;
 
-            cout << "Enter the car's make: ";
+            cout << "\nEnter the car's make: ";
             cin >> make;
             cout << "Enter the car's model: ";
             cin >> model;
@@ -50,7 +49,7 @@ int main() {
             cout << "Customer added with car details: " << newCar.getDetails() << endl;
             
             //Ties together Car info and Customer info, displays customer info.
-            Customer getInfo();
+            //Customer getInfo();
             break;
         }
 
@@ -69,57 +68,6 @@ int main() {
         case 5:
             cout << "Program ended." << endl;
             return 0;
-    }
-
-    void asciiArt() {
-            int max = 4;
-        int min = 1;
-
-        if (max < min) {
-            swap(max, min);
-        }
-
-        srand(time(0));
-        int randNum = rand()%(max-min + 1) + min;
-        cout << randNum;
-
-        if(randNum == 1) {
-            cout << "        ____                      _____________              _____________" << endl;
-            cout << "   ____//_]|________         ____//__][__][___|         ____//__][______||" <<  endl;
-            cout << "  (o _ |  -|   _  o|        (o  _|  -|     _ o|        (o _ |  -|   _   o|" << endl;
-            cout << "   `(_)-------(_)--'         `-(_)--------(_)-'         `(_)-------(_)---'" << endl;
-        }
-
-        else if(randNum == 2) {
-            cout << "                                                         _________________________    " << endl;
-            cout << "                    /\\\\      _____          _____       |   |     |     |    | |  \\  " << endl;
-            cout << "     ,-----,       /  \\\\____/__|__\\_    ___/__|__\\___   |___|_____|_____|____|_|___\\ " << endl;
-            cout << "  ,--'---:---`--, /  |  _     |     `| |      |      `| |                    | |    \\" << endl;
-            cout << " ==(o)-----(o)==J    `(o)-------(o)=   `(o)------(o)'   `--(o)(o)--------------(o)--' " << endl;
-        }
-
-        else if(randNum == 3) {
-            cout << "                                  @" << endl;
-            cout << "               (__)    (__) _____/" << endl;
-            cout << "            /| (oo) _  (oo)/----/_____    *" << endl;
-            cout << "  _o\\______/_|\\_\\/_/_|__\\/|____|//////== *- *  * -" << endl;
-            cout << " /_________   \\   00 |   00 |       /== -* * -" << endl;
-            cout << "[_____/^^\\_____\\_____|_____/^^\\_____]     *- * -" << endl;
-            cout << "      \\__/                 \\__/" << endl;
-        }
-
-        else {
-            cout << "                       ____________________" << endl;
-            cout << "                     //|           |        \\" << endl;
-            cout << "                   //  |           |          \\" << endl;
-            cout << "      ___________//____|___________|__________()\\__________________" << endl;
-            cout << "    /__________________|_=_________|_=___________|_________________{}" << endl;
-            cout << "    [           ______ |           | .           | ==  ______      { }" << endl;
-            cout << "  __[__        /##  ##\\|           |             |    /##  ##\\    _{# }_" << endl;
-            cout << " {_____)______|##    ##|___________|_____________|___|##    ##|__(______}" << endl;
-            cout << "             /  ##__##                              /  ##__##        \\" << endl;
-            cout << "----------------------------------------------------------------------------" << endl;
-        }
     }
     return 0;
 }

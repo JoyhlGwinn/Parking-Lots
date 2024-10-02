@@ -25,6 +25,7 @@ public:
     string getModel() const;
     string getLicensePlate() const;
     string getColor() const;
+
 };
 
 #endif

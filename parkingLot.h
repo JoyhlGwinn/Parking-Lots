@@ -1,24 +1,31 @@
 #ifndef PARKINGLOT_H
 #define PARKINGLOT_H
+
 #include "car.h"
+
+#include <iostream>
+#include <fstream>
+#include <string>
+
 using namespace std;
 
 class ParkingLot {
-    private:
+private:
     int lotCapacity;
     int currentOccupancy;
     Car** parkedCars;
 
 public:
-ParkingLot(int capacaity);
-~ParkingLot();
+    ParkingLot(int capacity);
+    ~ParkingLot();
 
-bool isAvailable(int spot);
-void assignCar(int spot, Car* car);
-void releaseSpot(int spot);
-void displayStatus() const;
+    bool isAvailable(int spot);
+    void assignCar(int spot, Car* car);
+    void releaseSpot(int spot);
+    void displayStatus() const;
 
-void saveToFile(const string& filename) const;
-void loadFromFile(const string& filename);
+    void saveToFile(const string& filename) const;
+    void loadFromFile(const string& filename);
 };
-#endif
+
+#endif // PARKINGLOT_H
