@@ -2,10 +2,28 @@
 #define DRIVER_H
 
 #include <iostream>
-#include <ctime> 
+#include <cstdlib>  
+#include <ctime>
 
 using namespace std;
 
+void parkingSpotPicker(){
+    int numGen(int max, int min) {
+        if (max < min) {
+        swap(max, min);
+    }
+    srand(time(0));
+    int randNum = rand()%(max-min + 1) + min;
+
+    return randNum;
+    }
+    int spotPicker() {
+        int max = 64;
+        int min = 1;
+        int randNum = numGen(max, min);
+        cout << "Your parking spot number is " << randNum << endl;
+    }
+}
 void asciiArt(){
         int max = 4;
         int min = 1;
