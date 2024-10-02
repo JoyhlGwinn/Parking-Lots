@@ -14,7 +14,7 @@ ParkingLot(int capacaity);
 ~ParkingLot();
 
 bool isAvailable(int spot);
-void assignCar(int spot, Car* car, int rentalTime);
+void assignCar(int spot, Car* car);
 void releaseSpot(int spot);
 void displayStatus() const;
 

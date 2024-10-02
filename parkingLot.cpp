@@ -50,7 +50,6 @@ void ParkingLot::displayStatus() const {
     }
 }
 
-//save/load file funt
 void ParkingLot::saveToFile(const string& filename) const {
     ofstream file(filename);
     if (!file) {
@@ -59,11 +58,13 @@ void ParkingLot::saveToFile(const string& filename) const {
     }
 
     file << lotCapacity << " " << currentOccupancy << endl;
-    for (int i=0; i<lotCapacity; ++i) {
+    for (int i = 0; i < lotCapacity; ++i) {
         if (parkedCars[i]) {
             file << i << " ";
-            parkedCars[i]->getDetails(file);
-            file << endl;
+            file << parkedCars[i]->getMake() << " "
+                 << parkedCars[i]->getModel() << " "
+                 << parkedCars[i]->getLicensePlate() << " "
+                 << parkedCars[i]->getColor() << endl;
         }
     }
     file.close();
@@ -77,29 +78,29 @@ void ParkingLot::loadFromFile(const string& filename) {
     }
 
     int capacity, occupancy;
-    file>>capacity>>occupancy;
+    file >> capacity >> occupancy;
 
-    if (capacity!=lotCapacity) {
+    if (capacity != lotCapacity) {
         cerr << "Mismatch in lot capacity." << endl;
         return;
     }
 
     // Clear current state
-    for (int i=0; i<lotCapacity; ++i) {
+    for (int i = 0; i < lotCapacity; ++i) {
         delete parkedCars[i];
         parkedCars[i] = nullptr;
     }
-    currentOccupancy=0;
+    currentOccupancy = 0;
 
     // Load data
     int spot;
-    while (file >> spot) {
+    string make, model, licensePlate, color;
+    while (file >> spot >> make >> model >> licensePlate >> color) {
         if (spot < 0 || spot >= lotCapacity) {
             cerr << "Invalid spot in file." << endl;
             continue;
         }
-        parkedCars[spot] = new Car();
-        parkedCars[spot]->getDetails(file);
+        parkedCars[spot] = new Car(make, model, licensePlate, color);
         currentOccupancy++;
     }
 
