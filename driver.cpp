@@ -7,10 +7,9 @@
 int main() {
     int userInput;
     ParkingLot lot(30);
-    lot.loadFromFile("parking_lot_info.txt");
 
     do {
-        // Display the menu
+        asciiArt();
         cout << "\nChoose an integer 1-5 to take action. " << endl;
         cout << "\n1.) Add a customer (car) " << endl;
         cout << "\n2.) Print parking lot status " << endl;
@@ -21,8 +20,10 @@ int main() {
         cout << "\nSelection: ";
         cin >> userInput;
 
-        if (userInput < 1 || userInput > 5) {
-            cout << "\n\nChoose an integer 1-5, please. " << endl << endl;
+        while (userInput < 1 || userInput > 5) {
+            cout << "\nInvalid input. Please choose an integer between 1 and 5." << endl;
+            cout << "\nSelection: ";
+            cin >> userInput;
         }
 
         switch (userInput) {
@@ -80,6 +81,7 @@ int main() {
                              << "Color: " << newCar.getColor() << "\n"
                              << "Assigned Spot: " << assignedSpot + 1 << "\n"
                              << "-----------------------\n";
+                             lot.loadFromFile("parking_lot_info.txt");
                         file.close();
                     } else {
                         cerr << "\nError opening file for writing." << endl;
@@ -166,7 +168,7 @@ int main() {
                 cout << "Program ended." << endl;
                 break;
         }
-    } while (userInput != 5); // Keep displaying the menu until the user chooses option 5 (end the program)
+    } while (userInput != 5);
 
     return 0;
 }
