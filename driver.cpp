@@ -27,71 +27,66 @@ int main() {
 
         switch (userInput) {
             case 1: {
-    string make, model, licensePlate, color, name, gender;
+                string make, model, licensePlate, color, name, gender;
 
-    cout << "\nEnter the car's make: ";
-    cin >> make;
-    cout << "Enter the car's model: ";
-    cin >> model;
-    cout << "Enter the car's license plate: ";
-    cin >> licensePlate;
-    cout << "Enter the car's color: ";
-    cin >> color;
+                cout << "\nEnter the car's make: ";
+                cin >> make;
+                cout << "Enter the car's model: ";
+                cin >> model;
+                cout << "Enter the car's license plate: ";
+                cin >> licensePlate;
+                cout << "Enter the car's color: ";
+                cin >> color;
 
-    cout << "Enter the customer's name: ";
-    cin >> name;
-    cout << "Enter the customer's gender: ";
-    cin >> gender;
+                cout << "Enter the customer's name: ";
+                cin >> name;
+                cout << "Enter the customer's gender: ";
+                cin >> gender;
 
-    Car newCar(make, model, licensePlate, color);
+                Car newCar(make, model, licensePlate, color);
 
-    int assignedSpot = -1;
-    for (int i = 0; i < 30; i++) {
-        // Check if the initially found spot is available
-        if (lot.isAvailable(i)) {
-            assignedSpot = i;
-            lot.assignCar(i, &newCar);
-            break;
-        }
-    }
+                int assignedSpot = -1;
+                for (int i = 0; i < 30; i++) {
+                    if (lot.isAvailable(i)) {
+                        assignedSpot = i;
+                        lot.assignCar(i, &newCar);
+                        break;
+                    }
+                }
 
-    // If assignedSpot is still -1, look for the next available spot
-    if (assignedSpot == -1) {
-        for (int i = 0; i < 30; i++) {
-            if (lot.isAvailable(i)) {
-                assignedSpot = i;
-                lot.assignCar(i, &newCar);
+                if (assignedSpot == -1) {
+                    for (int i = 0; i < 30; i++) {
+                        if (lot.isAvailable(i)) {
+                            assignedSpot = i;
+                            lot.assignCar(i, &newCar);
+                            break;
+                        }
+                    }
+                }
+
+                if (assignedSpot == -1) {
+                    cout << "No available spots in the parking lot." << endl;
+                } else {
+                    cout << "\nCustomer added with car details: " << newCar.getDetails() << endl;
+                    cout << "Assigned parking spot: " << assignedSpot + 1 << endl;
+
+                    ofstream file("parking_lot_info.txt", ios::app);
+                    if (file.is_open()) {
+                        file << "Customer: " << name << "\n"
+                             << "Gender: " << gender << "\n"
+                             << "Car Make: " << newCar.getMake() << "\n"
+                             << "Car Model: " << newCar.getModel() << "\n"
+                             << "License Plate: " << newCar.getLicensePlate() << "\n"
+                             << "Color: " << newCar.getColor() << "\n"
+                             << "Assigned Spot: " << assignedSpot + 1 << "\n"
+                             << "-----------------------\n";
+                        file.close();
+                    } else {
+                        cerr << "\nError opening file for writing." << endl;
+                    }
+                }            
                 break;
             }
-        }
-    }
-
-    // If assignedSpot is still -1, it means no spots are available
-    if (assignedSpot == -1) {
-        cout << "No available spots in the parking lot." << endl;
-    } else {
-        cout << "\nCustomer added with car details: " << newCar.getDetails() << endl;
-        cout << "Assigned parking spot: " << assignedSpot + 1 << endl;
-
-        ofstream file("parking_lot_info.txt", ios::app);
-        if (file.is_open()) {
-            file << "Customer: " << name << "\n"
-                 << "Gender: " << gender << "\n"
-                 << "Car Make: " << newCar.getMake() << "\n"
-                 << "Car Model: " << newCar.getModel() << "\n"
-                 << "License Plate: " << newCar.getLicensePlate() << "\n"
-                 << "Color: " << newCar.getColor() << "\n"
-                 << "Assigned Spot: " << assignedSpot + 1 << "\n"
-                 << "-----------------------\n";
-            file.close();
-        } else {
-            cerr << "\nError opening file for writing." << endl;
-        }
-    }
-    break;
-}
-
-
             case 2: {
                 cout << "\n\t\t----- PARKING LOT STATUS -----\n";
                 int spotsPerRow = 3;
