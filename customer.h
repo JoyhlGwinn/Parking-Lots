@@ -14,7 +14,6 @@ class Customer
     private:
     string customerName;
     string gender;
-    string age;
     Car* car;
     ParkingLot* rentedSpot;
 
@@ -25,5 +24,7 @@ class Customer
     void rentSpot (ParkingLot* spot);
     void releaseSpot ();
     string getInfo ();
+    string getName() const;
+    string getGender() const;
 };
 #endif

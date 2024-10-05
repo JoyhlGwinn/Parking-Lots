@@ -2,7 +2,7 @@
 
 //Still need to stitch rented spot with everything else.
 Customer::Customer (string& name, Car* customerCar, ParkingLot* spot)
-    : customerName(name), gender(gender), age(age), car(customerCar), rentedSpot(spot){}
+    : customerName(name), gender(gender), car(customerCar), rentedSpot(spot){}
 
 Customer::~Customer()
 {
@@ -43,7 +43,7 @@ string Customer::getInfo ()
 
     carInfo = car->getDetails();
 
-    customerInfo = "\nName: " + customerName + "\ngender: " + gender + "\nAge: " + age;
+    customerInfo = "\nName: " + customerName + "\ngender: " + gender;
 
     cout << "Customer added with customer details: " << customerInfo;
 

@@ -29,7 +29,3 @@ string Car::getLicensePlate() const {
 string Car::getColor() const {
     return color;
 }
-
-
-
-//Usage in Driver.cpp: Car myCar("Lamborghini", "Huracan", "ABC123", "Yellow");

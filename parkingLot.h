@@ -2,6 +2,7 @@
 #define PARKINGLOT_H
 
 #include "car.h"
+#include "customer.h"
 
 #include <iostream>
 #include <fstream>
@@ -26,6 +27,7 @@ public:
 
     void saveToFile(const string& filename) const;
     void loadFromFile(const string& filename);
+    void updateFile(const string& filename) const;
 };
 
 #endif // PARKINGLOT_H
