@@ -2,26 +2,24 @@
 #include "customer.h"
 #include "driver.h"
 #include "parkingLot.h"
-#include <fstream>
 
 int main() {
     int userInput;
     ParkingLot lot(30);
 
     do {
-        asciiArt();
-        cout << "\nChoose an integer 1-5 to take action. " << endl;
-        cout << "\n1.) Add a customer (car) " << endl;
-        cout << "\n2.) Print parking lot status " << endl;
-        cout << "\n3.) Remove a customer " << endl;
-        cout << "\n4.) View all customers in the parking lot " << endl;
-        cout << "\n5.) End the program \n" << endl;
+        displayMenu();
 
         cout << "\nSelection: ";
         cin >> userInput;
 
+        // Check for valid input
         while (userInput < 1 || userInput > 5) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
             cout << "\nInvalid input. Please choose an integer between 1 and 5." << endl;
+            displayMenu();
             cout << "\nSelection: ";
             cin >> userInput;
         }

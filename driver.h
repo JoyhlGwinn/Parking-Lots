@@ -4,6 +4,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
+#include <limits>
 
 using namespace std;
 
@@ -14,19 +16,12 @@ int numGen(int max, int min) {
     return rand() % (max - min + 1) + min;
 }
 
-void parkingSpotPicker() {
-    int max = 64;
-    int min = 1;
-    int randNum = numGen(max, min);
-}
-
 // Function to display ASCII art based on a random number
 void asciiArt() {
     int max = 4;
     int min = 1;
 
     int randNum = numGen(max, min);
-    cout << randNum << endl; // Display the random number for reference
 
     if (randNum == 1) {
         cout << "        ____                      _____________              _____________" << endl;
@@ -59,6 +54,16 @@ void asciiArt() {
         cout << "             /  ##__##                              /  ##__##        \\" << endl;
         cout << "----------------------------------------------------------------------------" << endl;
     }
+}
+
+void displayMenu() {
+    asciiArt();
+    cout << "\nChoose an integer 1-5 to take action." << endl;
+    cout << "\n1.) Add a customer (car)" << endl;
+    cout << "\n2.) Print parking lot status" << endl;
+    cout << "\n3.) Remove a customer" << endl;
+    cout << "\n4.) View all customers in the parking lot" << endl;
+    cout << "\n5.) End the program\n" << endl;
 }
 
 #endif
